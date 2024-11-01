@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Author;
+use App\Models\Language;
+use App\Models\Topic;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,9 +14,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('post_statuses', function (Blueprint $table) {
+        Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
+            $table->string('title');
+            $table->foreignIdFor(Language::class)->constrained();
+            $table->foreignIdFor(Author::class)->constrained();
+            $table->foreignIdFor(Topic::class)->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -24,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('post_statuses');
+        Schema::dropIfExists('books');
     }
 };

@@ -1,8 +1,5 @@
 <?php
 
-use App\Models\Post;
-use App\Models\ReactionType;
-use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reactions', function (Blueprint $table) {
+        Schema::create('authors', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Post::class)->constrained();
-            $table->foreignIdFor(User::class)->constrained();
-            $table->foreignIdFor(ReactionType::class)->constrained();
+            $table->string('name');
+            $table->year('yob');
+            $table->text('data');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reactions');
+        Schema::dropIfExists('authors');
     }
 };

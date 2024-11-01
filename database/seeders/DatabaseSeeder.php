@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Author;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -17,12 +18,34 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Maged Yaseen',
-            'email' => 'magedyaseengroups@gmail.com',
-            'mobile' => '01024750245',
-            'password' => Hash::make('password'),
-            'roles' => 'admin',
+        Author::factory()->create([
+            'name' => 'Alaa Hamdy',
+            'yob' => '2024',
+            'data' => '',
+        ]);
+
+        Author::factory()->create([
+            'name' => 'Amr Mohmed',
+            'yob' => '2022',
+            'data' => '',
+        ]);
+
+        Author::factory()->create([
+            'name' => 'Salma Yasser ',
+            'yob' => '2020',
+            'data' => '',
+        ]);
+
+        Author::factory()->create([
+            'name' => 'Abdelrhman youssef',
+            'yob' => '2018',
+            'data' => '',
+        ]);
+
+        Author::factory()->create([
+            'name' => 'Sara Ahmed',
+            'yob' => '2022',
+            'data' => '',
         ]);
     }
 }
